@@ -87,9 +87,9 @@ export default function Contact() {
               }
             `}
           </style>
-          Looking for an experienced full-stack developer to build your web app
-          or ship your software product? To start an initial chat, just drop me
-          an email at{" "}
+          Looking for a skilled front-end developer to create stunning,
+          responsive user interfaces or enhance your web application's user
+          experience? To start a conversation, just drop me an email at{" "}
           <a
             className="contact-link"
             href="mailto:prven04@gmail.com"
