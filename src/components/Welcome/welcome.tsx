@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import { FaGithub } from "react-icons/fa";
+import { CiLinkedin } from "react-icons/ci";
 
 export default function Welcome() {
   return (
@@ -22,9 +24,9 @@ export default function Welcome() {
           {/* SVG for mobile */}
           <div className="w-full flex justify-center md:hidden">
             <img
-              src="/developer_role.svg"
-              alt="Developer Role"
-              className="w-64 h-64 object-contain"
+              src="/my_pic_2.jpg"
+              alt="Praveen Here!"
+              className="w-64 h-64 rounded-full object-cover border-4 border-blue-500 shadow-lg"
             />
           </div>
           {/* Description */}
@@ -38,14 +40,35 @@ export default function Welcome() {
             devices. I thrive on solving complex UI challenges and am committed
             to continuous learning and innovation in front-end technologies.
           </p>
-          {/* Contact Me Button */}
-          <div className="w-full flex justify-center">
+          {/* Contact Me Button and Social Icons (Desktop only) */}
+          <div className="w-full flex justify-center md:justify-start items-center gap-4">
             <a
               href="#contact"
               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
             >
               Contact Me
             </a>
+            {/* Social Icons for desktop only */}
+            <div className="hidden md:flex gap-4 ml-2">
+              <a
+                href="https://github.com/prven04"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="text-gray-700 hover:text-blue-500 text-2xl"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://linkedin.com/in/prven04"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-gray-700 hover:text-blue-500 text-2xl"
+              >
+                <CiLinkedin />
+              </a>
+            </div>
           </div>
         </div>
         {/* SVG for desktop */}
@@ -55,6 +78,11 @@ export default function Welcome() {
             alt="Developer Role"
             className="w-72 h-72 object-contain"
           />
+          {/* <img
+            src="/my_pic_2.jpg"
+            alt="Praveen Here!"
+            className="w-60 h-60 rounded-full object-cover border-4 border-blue-500 shadow-lg"
+          /> */}
         </div>
       </div>
     </div>

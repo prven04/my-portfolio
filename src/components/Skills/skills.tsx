@@ -12,14 +12,15 @@ export default function Skills() {
         <p className="text-gray-700 mb-8 text-justify indent-8">
           I have more than 4 years' experience building rich web applications
           for clients. Below is a quick overview of my main technical skill sets
-          and tools I use. Want to find out more about my experience?
+          and tools I use. Want to find out more about my experience?{" "}
           <a
-            href="https://praveen-alugoju.github.io/resume/"
+            href="/UI_Developer_PraveenKumarAlugoju_4.pdf"
             className="text-blue-600 underline hover:text-blue-800 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
+            download
           >
-            Check out my online resume.
+            Download my resume.
           </a>
         </p>
         <motion.div

@@ -1,6 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { FaDraftingCompass } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaGithub } from "react-icons/fa";
+import { CiLinkedin } from "react-icons/ci";
 
 const menuItems = [
   { label: "About", href: "#about" },
@@ -18,12 +22,47 @@ export default function Navbar() {
         {/* Left: Logo */}
         <a
           href="#welcome"
-          className="flex-shrink-0 font-bold text-white text-xl hover:text-blue-400 transition"
+          className="flex-shrink-0 font-bold text-white text-xl hover:text-blue-400 transition flex items-center"
           aria-label="Go to Welcome section"
           onClick={() => setMenuOpen(false)}
         >
-          A
+          <motion.span
+            initial={{ scale: 1 }}
+            animate={{ scale: 1.2 }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "reverse",
+              duration: 1,
+              ease: "easeInOut",
+            }}
+            className="inline-block align-middle mr-2"
+            style={{ transform: "scaleX(-1)" }}
+          >
+            <FaDraftingCompass size={32} className="text-blue-500" />
+          </motion.span>
+          <span className="sr-only">Logo</span>
         </a>
+        {/* Social Icons (Mobile only, between logo and right icon) */}
+        <div className="flex md:hidden gap-4 mx-2">
+          <a
+            href="https://github.com/prven04"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="text-gray-200 hover:text-blue-400 text-2xl"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://linkedin.com/in/prven04"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="text-gray-200 hover:text-blue-400 text-2xl"
+          >
+            <CiLinkedin />
+          </a>
+        </div>
         {/* Center: Menu (Desktop) */}
         <div className="hidden md:flex flex-1 justify-center gap-6">
           {menuItems.map((item) => (
