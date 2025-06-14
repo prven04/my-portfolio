@@ -74,100 +74,113 @@ export default function Projects() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center sm:py-8 px-6 sm:px-6">
-      <h1 className="text-3xl font-bold mb-6">Projects</h1>
+    <div className="flex flex-col items-center justify-center ">
+      <div className="max-w-5xl w-full rounded-lg py-8 sm:py-8 px-6 sm:px-6">
+        <h1 className="text-3xl text-center font-bold mb-4">Projects</h1>
+        {/* <div className="flex flex-col items-center justify-center py-8 sm:py-8 px-6 sm:px-6">
+      <h1 className="text-3xl font-bold mb-4">Projects</h1> */}
+        {/* Desktop view: 3 columns */}
+        <div className="hidden md:flex flex-col md:flex-row gap-6 w-full max-w-5xl">
+          {projects.map((proj, idx) => (
+            <motion.div
+              key={proj.title}
+              className="bg-white rounded-lg shadow p-4 flex-1 min-w-[260px]"
+              whileHover={{
+                scale: 1.04,
+                boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+              }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 * (idx + 1) }}
+            >
+              <h2 className="text-xl font-semibold mb-1">{proj.title}</h2>
+              <p className="text-gray-700 text-sm mb-1">
+                <strong>Duration:</strong> {proj.duration}
+              </p>
+              <p className="text-gray-700 text-sm mb-1">
+                <strong>Client:</strong> {proj.client}
+              </p>
+              <p className="text-gray-700 text-sm mb-2">
+                <strong>Tech:</strong> {proj.tech}
+              </p>
+              <ul className="list-disc list-inside text-gray-600 text-xs space-y-1">
+                {proj.details.map((d, i) => (
+                  <li key={i}>{d}</li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
 
-      {/* Desktop view: 3 columns */}
-      <div className="hidden md:flex flex-col md:flex-row gap-6 w-full max-w-5xl">
-        {projects.map((proj, idx) => (
-          <motion.div
-            key={proj.title}
-            className="bg-white rounded-lg shadow p-4 flex-1 min-w-[260px]"
-            whileHover={{
-              scale: 1.04,
-              boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
-            }}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 * (idx + 1) }}
-          >
-            <h2 className="text-xl font-semibold mb-1">{proj.title}</h2>
-            <p className="text-gray-700 text-sm mb-1">
-              <strong>Duration:</strong> {proj.duration}
-            </p>
-            <p className="text-gray-700 text-sm mb-1">
-              <strong>Client:</strong> {proj.client}
-            </p>
-            <p className="text-gray-700 text-sm mb-2">
-              <strong>Tech:</strong> {proj.tech}
-            </p>
-            <ul className="list-disc list-inside text-gray-600 text-xs space-y-1">
-              {proj.details.map((d, i) => (
-                <li key={i}>{d}</li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Mobile view: Carousel */}
-      <div className="md:hidden w-full max-w-xs flex flex-col items-center">
-        <div className="relative w-full flex items-center">
-          <motion.button
-            className="px-2 py-2 bg-gray-200 rounded-full hover:bg-gray-300 text-2xl flex items-center justify-center mr-2 shadow"
-            onClick={handlePrev}
-            aria-label="Previous Project"
-            whileTap={{ scale: 0.85 }}
-            whileHover={{ scale: 1.15 }}
-            style={{ zIndex: 2 }}
-          >
-            <FaChevronLeft />
-          </motion.button>
-          <div className="flex-1">
-            <AnimatePresence custom={direction} mode="wait">
-              <motion.div
-                key={projects[current].title}
-                className="bg-white rounded-lg shadow p-4 w-full min-w-[260px] h-[320px] flex flex-col justify-between"
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.4 }}
-                style={{ position: "relative" }}
-              >
-                <div>
-                  <h2 className="text-xl font-semibold mb-1">
-                    {projects[current].title}
-                  </h2>
-                  <p className="text-gray-700 text-sm mb-1">
-                    <strong>Duration:</strong> {projects[current].duration}
-                  </p>
-                  <p className="text-gray-700 text-sm mb-1">
-                    <strong>Client:</strong> {projects[current].client}
-                  </p>
-                  <p className="text-gray-700 text-sm mb-2">
-                    <strong>Tech:</strong> {projects[current].tech}
-                  </p>
-                  <ul className="list-disc list-inside text-gray-600 text-xs space-y-1">
-                    {projects[current].details.map((d, i) => (
-                      <li key={i}>{d}</li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+        {/* Mobile view: Carousel with drag support */}
+        <div className="md:hidden w-full max-w-5xl flex flex-col items-center">
+          <div className="relative w-full flex items-center">
+            <motion.button
+              className="flex-shrink-0 px-2 py-2 bg-gray-200 rounded-full hover:bg-gray-300 text-2xl flex items-center justify-center mr-1 shadow"
+              onClick={handlePrev}
+              aria-label="Previous Project"
+              whileTap={{ scale: 0.85 }}
+              whileHover={{ scale: 1.15 }}
+              style={{ zIndex: 2 }}
+            >
+              <FaChevronLeft />
+            </motion.button>
+            <div className="flex-1 min-w-0">
+              <AnimatePresence custom={direction} mode="wait">
+                <motion.div
+                  key={projects[current].title}
+                  className="bg-white rounded-lg shadow p-4 w-full min-w-0 h-[320px] flex flex-col justify-between"
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.4 }}
+                  style={{ position: "relative" }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.8}
+                  onDragEnd={(_, info) => {
+                    if (info.offset.x < -50) {
+                      handleNext();
+                    } else if (info.offset.x > 50) {
+                      handlePrev();
+                    }
+                  }}
+                >
+                  <div>
+                    <h2 className="text-xl font-semibold mb-1">
+                      {projects[current].title}
+                    </h2>
+                    <p className="text-gray-700 text-sm mb-1">
+                      <strong>Duration:</strong> {projects[current].duration}
+                    </p>
+                    <p className="text-gray-700 text-sm mb-1">
+                      <strong>Client:</strong> {projects[current].client}
+                    </p>
+                    <p className="text-gray-700 text-sm mb-2">
+                      <strong>Tech:</strong> {projects[current].tech}
+                    </p>
+                    <ul className="list-disc list-inside text-gray-600 text-xs space-y-1">
+                      {projects[current].details.map((d, i) => (
+                        <li key={i}>{d}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            <motion.button
+              className="flex-shrink-0 px-2 py-2 bg-gray-200 rounded-full hover:bg-gray-300 text-2xl flex items-center justify-center ml-1 shadow"
+              onClick={handleNext}
+              aria-label="Next Project"
+              whileTap={{ scale: 0.85 }}
+              whileHover={{ scale: 1.15 }}
+              style={{ zIndex: 2 }}
+            >
+              <FaChevronRight />
+            </motion.button>
           </div>
-          <motion.button
-            className="px-2 py-2 bg-gray-200 rounded-full hover:bg-gray-300 text-2xl flex items-center justify-center ml-2 shadow"
-            onClick={handleNext}
-            aria-label="Next Project"
-            whileTap={{ scale: 0.85 }}
-            whileHover={{ scale: 1.15 }}
-            style={{ zIndex: 2 }}
-          >
-            <FaChevronRight />
-          </motion.button>
         </div>
       </div>
     </div>

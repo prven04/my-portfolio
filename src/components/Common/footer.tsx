@@ -5,18 +5,8 @@ export default function Footer() {
     <footer className="bg-gray-800 text-white py-4">
       <div className="container mx-auto text-center">
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} My Portfolio. All rights reserved.
-        </p>
-        <p className="text-sm">
-          Built with{" "}
-          <a
-            href="https://nextjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:underline"
-          >
-            Next.js
-          </a>
+          &copy; {new Date().getFullYear()} Praveen Kumar Portfolio. All rights
+          reserved.
         </p>
       </div>
     </footer>

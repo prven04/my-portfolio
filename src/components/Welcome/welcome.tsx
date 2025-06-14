@@ -28,7 +28,7 @@ export default function Welcome() {
             />
           </div>
           {/* Description */}
-          <p className="text-xl text-gray-600 mb-6 mt-4 flex justify-content-start">
+          <p className="text-xl text-gray-600 mb-6 mt-4 flex justify-content-start indent-8">
             As a passionate Front-End Developer, I specialize in building
             modern, high-performance, and accessible web applications. My
             expertise lies in translating design concepts into responsive,
