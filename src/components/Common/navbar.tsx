@@ -54,7 +54,7 @@ export default function Navbar() {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/prven04"
+            href="https://www.linkedin.com/in/praveenkumar-alugoju-730538333/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"

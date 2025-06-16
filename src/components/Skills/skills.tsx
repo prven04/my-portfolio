@@ -31,7 +31,7 @@ export default function Skills() {
           className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-8 pt-5"
         >
           {/* Frontend */}
-          <div className="flex-1 bg-white shadow-md rounded-xl p-6 relative flex flex-col items-center mb-4 md:mb-0">
+          <div className="flex-1 bg-white shadow-md rounded-xl p-6 relative flex flex-col mb-4 md:mb-0">
             <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow">
               <FaCode className="text-white text-3xl" />
             </div>
@@ -71,7 +71,7 @@ export default function Skills() {
             </ul>
           </div>
           {/* Backend */}
-          <div className="flex-1 bg-white shadow-md rounded-xl p-6 relative flex flex-col items-center mb-4 md:mb-0">
+          <div className="flex-1 bg-white shadow-md rounded-xl p-6 relative flex flex-col  mb-4 md:mb-0">
             <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow">
               <FaDatabase className="text-white text-3xl" />
             </div>
@@ -116,7 +116,7 @@ export default function Skills() {
             </ul>
           </div>
           {/* Others */}
-          <div className="flex-1 bg-white shadow-md rounded-xl p-6 relative flex flex-col items-center">
+          <div className="flex-1 bg-white shadow-md rounded-xl p-6 relative flex flex-col">
             <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow">
               <RiPsychotherapyLine className="text-white text-3xl" />
             </div>
@@ -127,7 +127,7 @@ export default function Skills() {
               {["Sentry", "Track JS", "Amplitude"].map((skill, idx) => (
                 <motion.li
                   key={skill}
-                  className="flex items-center gap-2"
+                  className="flex gap-2"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{

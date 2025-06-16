@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { CiLinkedin } from "react-icons/ci";
 
 export default function Contact() {
   return (
@@ -80,10 +81,10 @@ export default function Contact() {
           <style>
             {`
               @media (max-width: 600px) {
-            .contact-intro {
-              padding-left: 20px !important;
-              padding-right: 20px !important;
-            }
+          .contact-intro {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
               }
             `}
           </style>
@@ -101,6 +102,34 @@ export default function Contact() {
             }}
           >
             prven04@gmail.com
+          </a>{" "}
+          or call me at{" "}
+          <a
+            className="contact-link"
+            href="#"
+            style={{
+              color: "rgba(0, 0, 0, 0.5)",
+              textDecoration: "underline",
+              fontWeight: 500,
+              wordBreak: "break-all",
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              const phone = "+918374423442";
+              const userAgent = window.navigator.userAgent || "";
+              if (/iPhone|iPad|iPod/i.test(userAgent)) {
+                // Open FaceTime on iOS
+                window.location.href = `facetime://${phone}`;
+              } else if (/Android/i.test(userAgent)) {
+                // Open dialer on Android
+                window.location.href = `tel:${phone}`;
+              } else {
+                // Default to tel for other devices
+                window.location.href = `tel:${phone}`;
+              }
+            }}
+          >
+            +91 8374423442
           </a>
         </motion.div>
         <motion.div
@@ -112,7 +141,7 @@ export default function Contact() {
         >
           <a
             className="contact-btn"
-            href="#"
+            href="https://www.linkedin.com/in/praveenkumar-alugoju-730538333/"
             style={{
               background: "linear-gradient(90deg, #2563eb 0%, #60a5fa 100%)",
               color: "#fff",
@@ -126,6 +155,9 @@ export default function Contact() {
               border: "none",
               outline: "none",
               cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
             }}
             onMouseOver={(e) => {
               e.currentTarget.style.background =
@@ -141,8 +173,11 @@ export default function Contact() {
               e.currentTarget.style.boxShadow =
                 "0 2px 12px rgba(59,130,246,0.15)";
             }}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Let's Talk
+            Let's Talk{" "}
+            <CiLinkedin style={{ fontSize: "1.4rem", marginRight: "0.5rem" }} />
           </a>
         </motion.div>
       </motion.div>
