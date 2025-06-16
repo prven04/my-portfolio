@@ -10,7 +10,7 @@ export default function Skills() {
       <div className="max-w-5xl w-full rounded-lg py-8 sm:py-8 px-6 sm:px-6">
         <h1 className="text-3xl text-center font-bold mb-4">Skills Overview</h1>
         <p className="text-gray-700 mb-8 text-justify indent-8">
-          I have more than 4 years' experience building rich web applications
+          I have more than 4+ years of experience building rich web applications
           for clients. Below is a quick overview of my main technical skill sets
           and tools I use. Want to find out more about my experience?{" "}
           <a
